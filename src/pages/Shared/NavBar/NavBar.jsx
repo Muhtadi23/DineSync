@@ -4,11 +4,13 @@ import { AuthContext } from "../../../providers/AuthProvider";
 // import { FaOpencart } from "react-icons/fa6";
 import { IoCartOutline } from "react-icons/io5";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
 
 const NavBar = () => {
 
     const { user, logOut } = useContext(AuthContext)
     const [cart] = useCart();
+    const [isAdmin] = useAdmin()
 
     const handleLogOut = () => {
         logOut()
@@ -19,8 +21,13 @@ const NavBar = () => {
 
         <li><Link to="/">Home</Link></li>
         <li><Link to="/menu">Our Menu</Link></li>
-        <li><Link to="/secret">secret</Link></li>
         <li><Link to="/order/salad">Order Food</Link></li>
+        {
+            user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
+        }
+        {
+            user && !isAdmin && <li><Link to="/dashboard/userHome">Dashboard</Link></li>
+        }
 
     </>
 
@@ -54,7 +61,8 @@ const NavBar = () => {
 
                     {
                         user ? <>
-                            <button onClick={handleLogOut} className="btn btn-active btn-ghost">Logout</button>
+                            {/* <span>{user?.displayName}</span> */}
+                            <button onClick={handleLogOut} className="btn btn-active btn-ghost">LogOut</button>
                         </> : <>
                             <Link className="btn btn-active btn-ghost" to="/login">Login</Link>
                         </>
