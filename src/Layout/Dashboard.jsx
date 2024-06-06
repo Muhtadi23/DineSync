@@ -33,11 +33,6 @@ const Dashboard = () => {
                                     Manage Items</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/bookings">
-                                    <FaBook></FaBook>
-                                    Manage Bookings</NavLink>
-                            </li>
-                            <li>
                                 <NavLink to="/dashboard/users">
                                     <FaUsers></FaUsers>
                                     All Users</NavLink>
@@ -49,11 +44,6 @@ const Dashboard = () => {
                                     <NavLink to="/dashboard/userHome">
                                         <FaHome></FaHome>
                                         User Home</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/dashboard/history">
-                                        <FaCalendar></FaCalendar>
-                                        Payment History</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/cart">
@@ -68,7 +58,7 @@ const Dashboard = () => {
                                 <li>
                                     <NavLink to="/dashboard/paymentHistory">
                                         <FaList></FaList>
-                                        Payment Real</NavLink>
+                                        Payment History</NavLink>
                                 </li>
                             </>
                     }
